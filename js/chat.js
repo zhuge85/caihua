@@ -49,7 +49,7 @@ let menu = document.querySelector('.caihua-menu'),
   timer = null,
   oldtime = '2019-04-13',
   singn = 0,
-  newarr = {
+  obj = {
     显示公告: '为了我们和大家的持续发展，请不要对本站进行任何和谐行为',
     存活时间: `菜花已经和哥哥共同度过了 ${getDays(
       oldtime
@@ -97,8 +97,8 @@ menubtn.onclick = function() {
     chat.num = 0
     chat.body.className = 'caihua-face face-00'
     menu.style.display = 'block'
-    let arr = Object.keys(newarr)
-    menu.appendChild(creatDom(arr))
+    let newobj = Object.keys(obj)
+    menu.appendChild(creatDom(newobj))
     typing(what)
     menubtn.childNodes[0].nodeValue = 'hide'
   }
@@ -112,14 +112,14 @@ menu.onclick = function(e) {
     if (target === menuitem[i]) {
       const val = menuitem[i].childNodes[0].nodeValue
       if (timer) clearTimer()
-      if (typeof newarr[val] == 'object') {
+      if (typeof obj[val] == 'object') {
         menu.innerHTML = ''
-        let arr = Object.keys(newarr[val])
-        menu.appendChild(creatDom(arr))
-      } else if (newarr[val] == undefined) {
-        for (let key in newarr) {
-          if (typeof newarr[key] == 'object') {
-            for (let item in newarr[key]) {
+        let newobj = Object.keys(obj[val])
+        menu.appendChild(creatDom(newobj))
+      } else if (obj[val] == undefined) {
+        for (let key in obj) {
+          if (typeof obj[key] == 'object') {
+            for (let item in obj[key]) {
               if (item === val) {
                 clearHtml()
                 closeMenu()
@@ -128,11 +128,11 @@ menu.onclick = function(e) {
                   case 'element':
                   case 'iview':
                   case 'ant desgin':
-                    window.open(newarr[key][item], 5000)
+                    window.open(obj[key][item], 5000)
                     startTimer()
                     break
                   default:
-                    typing(newarr[key][item], 5000)
+                    typing(obj[key][item], 5000)
                 }
               }
             }
@@ -143,7 +143,7 @@ menu.onclick = function(e) {
         closeMenu()
         switch (val) {
           case '隐藏菜花':
-            typing(newarr[val])
+            typing(obj[val])
             setTimeout(() => {
               menubtn.childNodes[0].nodeValue = 'menu'
               chat = null
@@ -152,11 +152,11 @@ menu.onclick = function(e) {
             }, 3000)
             break
           case '显示公告':
-            typing(newarr[val], 5000)
+            typing(obj[val], 5000)
             chat.body.className = 'caihua-face face-02'
             break
           default:
-            typing(newarr[val], 5000)
+            typing(obj[val], 5000)
         }
       }
     }
