@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/caihua.css" />
+    <style>
+      body {
+        height: 200vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="caihua">
+      <div class="caihua-face face-00" id="caihua">
+        <div class="caihua-eye"></div>
+      </div>
+      <div class="caihua-chat">
+        <div class="caihua-word"></div>
+        <div class="caihua-menu"></div>
+        <div class="caihua-btn">menu</div>
+      </div>
+    </div>
+    <div class="caihua-zhaohuan">召唤菜花</div>
+    <script src="js/drag.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+      new Drag('caihua')
+    </script>
+  </body>
+</html>
